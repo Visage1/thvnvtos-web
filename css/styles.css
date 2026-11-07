@@ -314,11 +314,68 @@ button {
 }
 
 .hero__bg {
+  --hero-img: url("https://f4.bcbits.com/img/0043759163_10.jpg");
   position: absolute;
   inset: 0;
-  background: #050505 url("https://f4.bcbits.com/img/0043759163_10.jpg") center 30% / cover no-repeat;
+  background: #050505 var(--hero-img) center 30% / cover no-repeat;
   filter: grayscale(1) contrast(1.15) brightness(0.55);
   transform: scale(1.05);
+}
+
+/* ---------- Glitch del hero ---------- */
+.hero__glitch {
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-img);
+  background-position: center 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0;
+  will-change: clip-path, transform, opacity;
+}
+
+.hero__glitch--red {
+  filter: sepia(1) saturate(8) hue-rotate(-40deg) brightness(0.85);
+}
+
+.hero__glitch--cyan {
+  filter: sepia(1) saturate(8) hue-rotate(150deg) brightness(0.85);
+}
+
+.hero.is-glitching .hero__bg {
+  animation: hero-jump 0.45s steps(2) both;
+}
+
+.hero.is-glitching .hero__glitch--red {
+  animation: glitch-red 0.45s steps(4) both;
+}
+
+.hero.is-glitching .hero__glitch--cyan {
+  animation: glitch-cyan 0.45s steps(4) both;
+}
+
+@keyframes glitch-red {
+  0%   { opacity: 0.55; clip-path: inset(8% 0 74% 0);  transform: translateX(-16px); }
+  30%  { opacity: 0.40; clip-path: inset(44% 0 36% 0); transform: translateX(12px); }
+  60%  { opacity: 0.60; clip-path: inset(68% 0 10% 0); transform: translateX(-9px); }
+  85%  { opacity: 0.35; clip-path: inset(22% 0 60% 0); transform: translateX(18px); }
+  100% { opacity: 0;    clip-path: inset(0 0 100% 0);  transform: none; }
+}
+
+@keyframes glitch-cyan {
+  0%   { opacity: 0.45; clip-path: inset(62% 0 18% 0); transform: translateX(14px); }
+  30%  { opacity: 0.60; clip-path: inset(14% 0 70% 0); transform: translateX(-12px); }
+  60%  { opacity: 0.35; clip-path: inset(36% 0 44% 0); transform: translateX(10px); }
+  85%  { opacity: 0.55; clip-path: inset(76% 0 6% 0);  transform: translateX(-18px); }
+  100% { opacity: 0;    clip-path: inset(0 0 100% 0);  transform: none; }
+}
+
+@keyframes hero-jump {
+  0%   { transform: scale(1.05) translateX(0);     filter: grayscale(1) contrast(1.15) brightness(0.55); }
+  30%  { transform: scale(1.05) translateX(-7px);  filter: grayscale(1) contrast(1.45) brightness(0.72); }
+  60%  { transform: scale(1.05) translateX(6px);   filter: grayscale(1) contrast(1.1)  brightness(0.42); }
+  100% { transform: scale(1.05) translateX(0);     filter: grayscale(1) contrast(1.15) brightness(0.55); }
 }
 
 .hero__overlay {

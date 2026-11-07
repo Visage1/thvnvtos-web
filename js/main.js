@@ -174,3 +174,28 @@ document.addEventListener("keydown", (e) => {
 
 /* ---------- Año del footer ---------- */
 document.getElementById("year").textContent = String(new Date().getFullYear());
+
+/* ---------- Glitch del hero: ráfagas aleatorias ---------- */
+const hero = document.querySelector(".hero");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function scheduleGlitch() {
+  if (reducedMotion.matches || !hero) return;
+
+  const wait = 4000 + Math.random() * 5000; // 4–9 s entre ráfagas
+  setTimeout(() => {
+    if (reducedMotion.matches) return;
+    const duration = 350 + Math.random() * 300; // 350–650 ms de duración
+    hero.classList.add("is-glitching");
+    setTimeout(() => {
+      hero.classList.remove("is-glitching");
+      scheduleGlitch();
+    }, duration);
+  }, wait);
+}
+
+scheduleGlitch();
+
+reducedMotion.addEventListener("change", (e) => {
+  if (e.matches) hero?.classList.remove("is-glitching");
+});
