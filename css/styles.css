@@ -503,6 +503,32 @@ button {
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
+.music__spotify {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.music__spotify-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.music__spotify iframe {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: 200px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.gallery__more {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
 /* ---------- Archivos ---------- */
 .archive {
   border-top: 1px solid var(--line);

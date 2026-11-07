@@ -9,12 +9,18 @@ Static site: no build step, no dependencies.
 
 | Section    | Content                                                        |
 | ---------- | -------------------------------------------------------------- |
-| Música     | Bandcamp embeds (Despojo, Destrvdo, Noche y Niebla EP)         |
+| Música     | Bandcamp embeds (Despojo, Destrvdo, Noche y Niebla EP) + Spotify artist player |
 | Archivos   | Full discography with artwork and links                        |
 | Fechas     | Events list rendered from `EVENTS` + empty state               |
 | Merch      | Store cards (Bandcamp store / direct orders via Instagram)     |
-| Portafolio | Image gallery with lightbox                                    |
+| Portafolio | Photo gallery (12 images from the official Instagram) with lightbox |
 | Contacto   | Bandcamp contact form, social links, lineup                    |
+
+**Official links**
+
+- Bandcamp: https://thvnvtosproject.bandcamp.com/
+- Spotify: https://open.spotify.com/intl-es/artist/4iJhPb2BerhWhtseMzJkfM
+- Instagram: https://www.instagram.com/thvnvtosprojectofficial
 
 ## Run locally
 
@@ -41,9 +47,10 @@ const EVENTS = [
 ## Structure
 
 ```
-index.html      # all markup (hero, sections, footer, lightbox)
-css/styles.css  # theme, responsive layout, animations
-js/main.js      # events data, nav, reveals, lightbox
+index.html         # all markup (hero, sections, footer, lightbox)
+css/styles.css     # theme, responsive layout, animations
+js/main.js         # events data, nav, reveals, lightbox
+assets/gallery/    # gallery photos sourced from the official Instagram
 ```
 
 ## Deploy
