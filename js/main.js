@@ -182,7 +182,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 function scheduleGlitch() {
   if (reducedMotion.matches || !hero) return;
 
-  const wait = 4000 + Math.random() * 5000; // 4–9 s entre ráfagas
+  const wait = 3000;
   setTimeout(() => {
     if (reducedMotion.matches) return;
     const duration = 350 + Math.random() * 300; // 350–650 ms de duración
